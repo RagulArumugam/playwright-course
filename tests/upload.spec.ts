@@ -16,8 +16,17 @@ test.describe( "test uploading a file" ,() => {
         // click the upload button
         await page.locator('#upload_1').click();
 
-        //assertion
-        // await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully');
+        // hardcoded wait to ensure the file is uploaded
+        await page.waitForTimeout(5000); // wait for the upload to complete
+
+        // conditional wait
+        await page.locator('#wfu_messageblock_header_1_1').waitFor({ state: "visible", timeout: 10000 });
+
+        // assertion wait 
+        await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully');
+
+        // assertion
+        // await expect(page.locator('#wfu_messageblock_header_1_1')).toContainText('uploaded successfully', { timeout: 10000 });
     }) 
 
     test("Open cart page and check for file upload with Dom manipulation", async ({ page }) => {
