@@ -8,6 +8,8 @@ test.describe( "blog post testing" ,() => {
 
         let allLinks = await page.locator("#recent-posts-3 >> li")
 
+        expect(test.info().errors).toEqual([]);
+
         for (let el of await allLinks.elementHandles()) {
             expect(((await el.textContent())?.trim())?.length).toBeGreaterThanOrEqual(10);
         }
