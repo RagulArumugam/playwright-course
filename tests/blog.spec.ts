@@ -9,7 +9,7 @@ test.describe( "blog post testing" ,() => {
         let allLinks = await page.locator("#recent-posts-3 >> li")
 
         for (let el of await allLinks.elementHandles()) {
-            expect((await el.textContent())?.length).toBeGreaterThanOrEqual(10);
+            expect(((await el.textContent())?.trim())?.length).toBeGreaterThanOrEqual(10);
         }
         expect((await allLinks.allTextContents()).length).toEqual(5);
     }) 
