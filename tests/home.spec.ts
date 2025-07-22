@@ -18,7 +18,7 @@ test.describe( "description" ,() => {
         await expect(page).toHaveTitle("About – Practice E-Commerce Site")
     })
 
-    test("Click get started button using css selector", async ({ page }) => {
+    test("Click get started button using CSS selector", async ({ page }) => {
         // open url
         await page.goto("https://practice.sdetunicorns.com/");
 
@@ -28,4 +28,41 @@ test.describe( "description" ,() => {
         // verify url has #get-started
         await expect(page).toHaveURL("https://practice.sdetunicorns.com/#get-started")
     })
+
+    test("get the title using using Text selector", async ({ page }) => {
+        // open url
+        await page.goto("https://practice.sdetunicorns.com/");
+
+        // click the button
+        let titleText = page.locator("text=Think different. Make different.");
+
+        // verify url has #get-started
+        await expect(titleText).toBeVisible();
+    })
+
+    test("Verify home link is enabed usng text and css selector", async ({ page }) => {
+        // open url
+        await page.goto("https://practice.sdetunicorns.com/");
+
+        // click the button
+        // let titleText = await page.locator("#zak-primary-menu >> text=Home");
+        let titleText = await page.locator("#zak-primary-menu:has-text('Home')");
+
+        // verify url has #get-started
+        await expect(titleText).toBeEnabled();
+    })
+
+    test("Verify home link is enabed usng text and css selectorssss", async ({ page }) => {
+        // open url
+        await page.goto("https://practice.sdetunicorns.com/");
+
+        // click the button
+        // let titleText = await page.locator("#zak-primary-menu >> text=Home");
+        let titleText = await page.locator("#zak-primary-menu:has-text('Home')");
+
+        // verify url has #get-started
+        await expect(titleText).toBeEnabled();
+    })
+
+
 })
