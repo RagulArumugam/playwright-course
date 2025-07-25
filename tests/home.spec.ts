@@ -6,7 +6,7 @@ test.describe( "description" ,() => {
     test("Open HomePage and verify title", async ({ page }) => {
         homePage = new HomePage(page);
         // open url
-        await homePage.page.goto("https://practice.sdetunicorns.com/");
+        await homePage.navigateToHomePage();
 
         // verify title
         await expect(homePage.page).toHaveTitle("Practice E-Commerce Site – SDET Unicorns")
@@ -25,7 +25,7 @@ test.describe( "description" ,() => {
     test("Click get started button using CSS selector", async ({ page }) => {
         // open url
         homePage = new HomePage(page);
-        await homePage.page.goto("https://practice.sdetunicorns.com/");
+        await homePage.navigateToHomePage();
 
         // click the button
         await homePage.getStartedButton.click();
@@ -37,7 +37,7 @@ test.describe( "description" ,() => {
     test("get the title using using Text selector", async ({ page }) => {
         homePage = new HomePage(page);
         // open url
-        await homePage.page.goto("https://practice.sdetunicorns.com/");
+        await homePage.navigateToHomePage();
 
         // click the button
         let titleText = homePage.headerText;
@@ -50,7 +50,7 @@ test.describe( "description" ,() => {
         homePage = new HomePage(page);
 
         // open url
-        await homePage.page.goto("https://practice.sdetunicorns.com/");
+        await homePage.navigateToHomePage();
 
         // click the button
         // let titleText = await page.locator("#zak-primary-menu >> text=Home");
@@ -64,7 +64,7 @@ test.describe( "description" ,() => {
         homePage = new HomePage(page);
 
         // open url
-        await homePage.page.goto("https://practice.sdetunicorns.com/");
+        await homePage.navigateToHomePage();
 
         // click the button
         // let titleText = await page.locator("#zak-primary-menu >> text=Home");

@@ -12,6 +12,10 @@ class HomePage {
         this.headerText = page.locator("text=Think different. Make different.");
         this.homeLink = page.locator("#zak-primary-menu:has-text('Home')");
     }
+
+    async navigateToHomePage() {
+        await this.page.goto("https://practice.sdetunicorns.com/");
+    }
 }
 
 export default HomePage;
